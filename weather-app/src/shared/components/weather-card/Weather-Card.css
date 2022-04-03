@@ -1,0 +1,13 @@
+.weather-card {
+  padding: 5px;
+}
+.weather-card-main {
+  background-color: rgb(44, 77, 83);
+  height: 70vh;
+}
+.weather-card-details {
+  color: rgb(20, 220, 235);
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+}
