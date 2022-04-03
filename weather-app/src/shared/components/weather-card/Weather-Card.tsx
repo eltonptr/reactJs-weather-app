@@ -4,7 +4,7 @@ type WeatherProps = {
   message: string;
 };
 
-const WeatherCard = (weatherProps: WeatherProps) => {
+function WeatherCard(weatherProps: WeatherProps) {
   return (
     <div className="weather-card">
       <h1 className="weather-card-main">
@@ -14,6 +14,6 @@ const WeatherCard = (weatherProps: WeatherProps) => {
       </h1>
     </div>
   );
-};
+}
 
 export default WeatherCard;
