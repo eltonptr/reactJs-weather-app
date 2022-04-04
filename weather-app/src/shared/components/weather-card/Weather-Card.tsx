@@ -10,23 +10,60 @@ type WeatherProps = {
 
 function WeatherCard(weatherProps: WeatherProps) {
   const [weather, setWeather] = useState<WeatherResponse>(weatherProps.message);
+  const [location, setLocation] = useState<LocationDetail>(
+    weatherProps.location
+  );
   useEffect(() => {
     setWeather(weatherProps.message);
+  }, [weatherProps]);
+
+  useEffect(() => {
+    setLocation(weatherProps.location);
   }, [weatherProps]);
 
   return (
     <div className="weather-card">
       <h1 className="weather-card-main">
-        <span className="weather-card-details">
-          This is a weather card with message {weather.longitude}
+        <span className="weather-card-sub-lane-details">
+          Location: {location.cityName}
         </span>
-        {weather.daily.time.map((value, index) => {
-          return (
-            <span className="weather-card-sub-details" key={index}>
-              {value}
-            </span>
-          );
-        })}
+        <span className="weather-card-sub-lane-details">
+          Longitude: {location.log}, Latitude: {location.lat}
+        </span>
+        <span className="weather-card-sub-lane-details">Dates</span>
+        <div className="weather-card-align">
+          {weather.daily.time.map((value, index) => {
+            return (
+              <span className="weather-card-sub-details" key={index}>
+                {value}
+              </span>
+            );
+          })}
+        </div>
+        <span className="weather-card-sub-lane-details">
+          Minimum Temperature
+        </span>
+        <div className="weather-card-align">
+          {weather.daily.temperature_2m_min.map((value, index) => {
+            return (
+              <span className="weather-card-sub-details" key={index}>
+                {value}
+              </span>
+            );
+          })}
+        </div>
+        <span className="weather-card-sub-lane-details">
+          Maximum Temperature
+        </span>
+        <div className="weather-card-align">
+          {weather.daily.temperature_2m_max.map((value, index) => {
+            return (
+              <span className="weather-card-sub-details" key={index}>
+                {value}
+              </span>
+            );
+          })}
+        </div>
       </h1>
     </div>
   );

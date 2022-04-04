@@ -9,6 +9,7 @@
   color: rgb(20, 220, 235);
   font-size: 20px;
   font-weight: 400;
+  display: block;
   text-align: center;
 }
 
@@ -16,5 +17,18 @@
   color: rgb(20, 220, 235);
   font-size: 20px;
   font-weight: 400;
+  text-align: center;
+  padding: 5px;
+}
+
+.weather-card-sub-lane-details {
+  color: rgb(20, 220, 235);
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
   display: block;
+}
+
+.weather-card-align {
+  text-align: center;
 }
