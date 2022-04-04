@@ -11,3 +11,10 @@
   font-weight: 400;
   text-align: center;
 }
+
+.weather-card-sub-details {
+  color: rgb(20, 220, 235);
+  font-size: 20px;
+  font-weight: 400;
+  display: block;
+}
