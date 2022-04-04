@@ -47,44 +47,68 @@ let sampleWeatherResponse: WeatherResponse = {
     temperature: 26.4,
   },
   latitude: 9.875,
+  location: {
+    cityName: "Mumbai - Sample",
+    lat: 19.075983,
+    log: 72.877655,
+    isSelected: true,
+  },
 };
 
-let location: LocationDetail = {
-  cityName: "Mumbai",
-  lat: 19.075983,
-  log: 72.877655,
-  isSelected: true,
-};
+let locations: LocationDetail[] = [
+  {
+    cityName: "Mumbai",
+    lat: 19.075983,
+    log: 72.877655,
+    isSelected: true,
+  },
+  {
+    cityName: "Kochi",
+    lat: 9.931233,
+    log: 76.267303,
+    isSelected: true,
+  },
+  {
+    cityName: "Delhi",
+    lat: 28.70406,
+    log: 77.102493,
+    isSelected: true,
+  },
+];
 
 function App() {
-  const [weatherDetail, setWeatherDetail] = useState<WeatherResponse | null>(
-    null
-  );
+  const [weatherDetail, setWeatherDetail] = useState<WeatherResponse[]>([]);
   useEffect(() => {
-    axios
-      .get<WeatherResponse>("https://api.open-meteo.com/v1/forecast", {
-        params: {
-          latitude: location.lat,
-          longitude: location.log,
-          daily: "temperature_2m_max,temperature_2m_min",
-          current_weather: true,
-          timezone: "UTC",
-        },
-      })
-      .then((response) => {
-        setWeatherDetail(response.data);
-      })
-      .catch((error) => {
-        console.log("API Failed");
-      });
-  }, [location]);
+    locations.forEach((location) => {
+      axios
+        .get<WeatherResponse>("https://api.open-meteo.com/v1/forecast", {
+          params: {
+            latitude: location.lat,
+            longitude: location.log,
+            daily: "temperature_2m_max,temperature_2m_min",
+            current_weather: true,
+            timezone: "UTC",
+          },
+        })
+        .then((response) => {
+          response.data.location = location;
+          setWeatherDetail((otherCities) => [...otherCities, response.data]);
+        })
+        .catch((error) => {
+          console.log("API Failed");
+        });
+    });
+  }, [locations]);
 
   return (
-    <div className="app-header">
-      <WeatherCard
-        message={weatherDetail ?? sampleWeatherResponse}
-        location={location}
-      />
+    <div>
+      {weatherDetail.map((weather, index) => {
+        return (
+          <div className="app-header" key={index}>
+            <WeatherCard message={weather} />;
+          </div>
+        );
+      })}
     </div>
   );
 }
