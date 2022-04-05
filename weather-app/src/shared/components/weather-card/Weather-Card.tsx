@@ -14,7 +14,7 @@ function WeatherCard(weatherProps: WeatherProps) {
   }, [weatherProps]);
 
   return (
-    <div className="weather-card">
+    <div>
       <h1 className="weather-card-main">
         <span className="weather-card-sub-lane-details">
           Location: {weather.location.cityName}

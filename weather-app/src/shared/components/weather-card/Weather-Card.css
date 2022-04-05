@@ -1,7 +1,3 @@
-.weather-card {
-  background-color: #a75ce0;
-  padding: 10px;
-}
 .weather-card-main {
   color: #482861;
   font-size: 20px;
@@ -9,6 +5,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
 }
 .weather-card-title {
   font-weight: 600;

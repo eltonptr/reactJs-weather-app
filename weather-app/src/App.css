@@ -3,8 +3,17 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   background-color: #8859f7;
+  overflow-x: hidden;
+  height: 100vh;
 }
 
 .wc-items {
+  background-color: #a75ce0;
   padding: 10px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
