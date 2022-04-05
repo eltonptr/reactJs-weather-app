@@ -60,7 +60,7 @@ function App() {
     <div className="wc-container">
       {weatherDetail.map((weather, index) => {
         return (
-          <div className="wc-items" key={index}>
+          <div key={index}>
             <WeatherCard message={weather} />
           </div>
         );

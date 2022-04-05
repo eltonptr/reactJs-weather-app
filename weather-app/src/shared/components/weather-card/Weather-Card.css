@@ -1,11 +1,14 @@
 .weather-card-main {
+  background-color: #42d69d;
   color: #482861;
   font-size: 20px;
+  margin: 10px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  height: 44vh;
 }
 .weather-card-title {
   font-weight: 600;
@@ -14,10 +17,4 @@
 .weather-card-sub-details {
   font-weight: 200;
   padding: 10px;
-}
-
-.weather-card-sub-lane-details {
-}
-
-.weather-card-align {
 }
