@@ -1,34 +1,26 @@
 .weather-card {
-  padding: 5px;
+  background-color: #a75ce0;
+  padding: 10px;
 }
 .weather-card-main {
-  background-color: rgb(44, 77, 83);
-  height: 70vh;
-}
-.weather-card-details {
-  color: rgb(20, 220, 235);
+  color: #482861;
   font-size: 20px;
-  font-weight: 400;
-  display: block;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.weather-card-title {
+  font-weight: 600;
 }
 
 .weather-card-sub-details {
-  color: rgb(20, 220, 235);
-  font-size: 20px;
-  font-weight: 400;
-  text-align: center;
-  padding: 5px;
+  font-weight: 200;
+  padding: 10px;
 }
 
 .weather-card-sub-lane-details {
-  color: rgb(20, 220, 235);
-  font-size: 20px;
-  font-weight: 400;
-  text-align: center;
-  display: block;
 }
 
 .weather-card-align {
-  text-align: center;
 }

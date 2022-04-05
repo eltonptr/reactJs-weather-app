@@ -5,56 +5,6 @@ import WeatherCard from "./shared/components/weather-card/Weather-Card";
 import { LocationDetail } from "./shared/model/location-detail.inteface";
 import { WeatherResponse } from "./shared/model/weather-response.interface";
 
-// function App() {
-//   return (
-//     <div className="App-header">
-//       <WeatherCard message="Hello my friend!" />
-//       <WeatherCard message="Hello my friend!" />
-//       <WeatherCard message="Hello my friend!" />
-//     </div>
-//   );
-// }
-
-// export default App;
-
-/*
-	• locations(lat,long)
-		○ Kochi - (9.931233, 76.267303)
-		○ Mumbai - (19.075983, 72.877655)
-		○ Delhi - (28.704060, 77.102493)
-Kolkata - (22.572645, 88.363892)
-
-
-*/
-
-let sampleWeatherResponse: WeatherResponse = {
-  longitude: 76.25,
-  daily: {
-    time: [
-      "2022-04-03",
-      "2022-04-04",
-      "2022-04-05",
-      "2022-04-06",
-      "2022-04-07",
-      "2022-04-08",
-      "2022-04-09",
-    ],
-    temperature_2m_max: [31.7, 31, 30.7, 31.5, 31.5, 31.3, 31],
-    temperature_2m_min: [26.2, 26.1, 26.3, 26.1, 27, 26.6, 26.3],
-  },
-  current_weather: {
-    time: new Date("2022-04-03T21:00"),
-    temperature: 26.4,
-  },
-  latitude: 9.875,
-  location: {
-    cityName: "Mumbai - Sample",
-    lat: 19.075983,
-    log: 72.877655,
-    isSelected: true,
-  },
-};
-
 let locations: LocationDetail[] = [
   {
     cityName: "Mumbai",
@@ -72,6 +22,12 @@ let locations: LocationDetail[] = [
     cityName: "Delhi",
     lat: 28.70406,
     log: 77.102493,
+    isSelected: true,
+  },
+  {
+    cityName: "Kolkata",
+    lat: 22.572645,
+    log: 88.363892,
     isSelected: true,
   },
 ];
@@ -98,14 +54,14 @@ function App() {
           console.log("API Failed");
         });
     });
-  }, [locations]);
+  }, []);
 
   return (
-    <div>
+    <div className="wc-container">
       {weatherDetail.map((weather, index) => {
         return (
-          <div className="app-header" key={index}>
-            <WeatherCard message={weather} />;
+          <div className="wc-items" key={index}>
+            <WeatherCard message={weather} />
           </div>
         );
       })}
