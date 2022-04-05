@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   background-color: #3cd6c4;
-  overflow-x: hidden;
+  overflow-x: auto;
+  overflow-y: auto;
   height: 100vh;
 }
